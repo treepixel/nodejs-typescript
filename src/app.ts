@@ -4,6 +4,8 @@ import mongoose from 'mongoose'
 
 import './config/envConfig'
 
+import routes from './routes'
+
 class App {
     public express: express.Application
 
@@ -29,10 +31,7 @@ class App {
     }
 
     private routes (): void {
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-      this.express.get('/', (req, res) => {
-        return res.send('Hello World')
-      })
+      this.express.use(routes)
     }
 }
 
